@@ -21,20 +21,19 @@ void service_watchdog() {
 
 //loops until a good RC signal is detected and throttle is zero (assures safe start)
 static void wait_for_rc_good_and_zero_throttle() {
-    while (rc_signal_is_healthy() == false || rc_get_throttle_percent() > 0) {
-      
-      //"slow on/off" for LED while waiting for signal
-      heading_led_on(0); delay(250);
-      heading_led_off(); delay(250);
-      
-      //services watchdog and echo diagnostics while we are waiting for RC signal
-      service_watchdog();
-      echo_diagnostics();
+  while (rc_signal_is_healthy() == false || rc_get_throttle_percent() > 0) {
+    
+    //"slow on/off" for LED while waiting for signal
+    heading_led_on(0); delay(250);
+    heading_led_off(); delay(250);
+    
+    //services watchdog and echo diagnostics while we are waiting for RC signal
+    service_watchdog();
+    echo_diagnostics();
   }
 }
-  
 
-//Arduino initial setup function
+//INITIAL SETUP
 void setup() {
   
   Serial.begin(115200);
