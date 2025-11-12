@@ -60,12 +60,12 @@
 //Thanks to Richard Wong for his research in implementing brushless ESC support
 
 enum throttle_modes {
-  BINARY_THROTTLE,      //Motors pins are fully on/off - throttle controlled by portion of each rotation motor is on (no PWM)
+    BINARY_THROTTLE,    //Motors pins are fully on/off - throttle controlled by portion of each rotation motor is on (no PWM)
 
-  FIXED_PWM_THROTTLE,   //Motors pins are PWM at PWM_MOTOR_ON, PWM_MOTOR_COAST or PWM_MOTOR_OFF
+    FIXED_PWM_THROTTLE, //Motors pins are PWM at PWM_MOTOR_ON, PWM_MOTOR_COAST or PWM_MOTOR_OFF
                         //throttle controlled by portion of each rotation motor is on
 
-  DYNAMIC_PWM_THROTTLE  //Scales PWM throttling between PWM_MOTOR_COAST and PWM_MOTOR_ON
+    DYNAMIC_PWM_THROTTLE//Scales PWM throttling between PWM_MOTOR_COAST and PWM_MOTOR_ON
                         //Range of throttle scaled over is determined by DYNAMIC_PWM_THROTTLE_PERCENT_MAX
                         //PWM is locked at PWM_MOTOR_ON for throttle positions higher than DYNAMIC_PWM_THROTTLE_PERCENT_MAX
                         //Robot speed is additionally controlled by portion of each rotation motor is on (unless DYNAMIC_PWM_MOTOR_ON_PORTION is defined)
